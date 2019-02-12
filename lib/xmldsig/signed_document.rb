@@ -13,7 +13,7 @@ module Xmldsig
       @referenced_documents = options.fetch(:referenced_documents, {})
     end
 
-    def validate(certificate = nil, schema = nil, &block)
+    def validate(certificate = nil, schema = XSD_X509_SERIAL_FIX_FILE, &block)
       signatures.any? && signatures.all? { |signature| signature.valid?(certificate, schema, &block) }
     end
 
